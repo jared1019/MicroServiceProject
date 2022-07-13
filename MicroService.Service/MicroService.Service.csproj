@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetCore.CAP" Version="6.1.0" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroService.Interface\MicroService.Interface.csproj" />
+    <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
+  </ItemGroup>
+
+</Project>
