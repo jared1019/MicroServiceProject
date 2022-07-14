@@ -13,21 +13,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceInstance", "ServiceInstance", "{8B6D1C98-AD3C-4E95-95A3-686EB8352CCD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.UserService.Api", "ServiceInstance\UserService\UserService.Api\3.UserService.Api.csproj", "{2DAAB9B0-3981-48CD-8562-75D83F7FC6B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Api", "ServiceInstance\UserService\UserService.Api\UserService.Api.csproj", "{2DAAB9B0-3981-48CD-8562-75D83F7FC6B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.UserService.Interface", "ServiceInstance\UserService\UserService.Interface\2.UserService.Interface.csproj", "{FC4F9014-2FC2-49B6-899E-B0D5577FA0CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Interface", "ServiceInstance\UserService\UserService.Interface\UserService.Interface.csproj", "{FC4F9014-2FC2-49B6-899E-B0D5577FA0CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0.UserService.Model", "ServiceInstance\UserService\UserService.Model\0.UserService.Model.csproj", "{0321892F-98A4-4090-91EF-836C8D0EDC76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Model", "ServiceInstance\UserService\UserService.Model\UserService.Model.csproj", "{0321892F-98A4-4090-91EF-836C8D0EDC76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.UserService.Service", "ServiceInstance\UserService\UserService.Service\1.UserService.Service.csproj", "{9D324672-D6B3-4D4F-BA7E-EABF45EA0B4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Service", "ServiceInstance\UserService\UserService.Service\UserService.Service.csproj", "{9D324672-D6B3-4D4F-BA7E-EABF45EA0B4E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.UserService.Tests", "ServiceInstance\UserService\UserService.Tests\4.UserService.Tests.csproj", "{B2044BEE-8A74-44BF-940F-98530AF94DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Tests", "ServiceInstance\UserService\UserService.Tests\UserService.Tests.csproj", "{B2044BEE-8A74-44BF-940F-98530AF94DB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserService", "UserService", "{4E5ABFDD-5277-4F25-B0D9-F70CBCD2DD6F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GatewayService", "GatewayService", "{1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "ServiceInstance\OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{AC8204D5-F7F7-42B5-9224-774C62334D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateway", "ServiceInstance\OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{EE62428C-2F49-4B2C-BB52-302D49F6CF40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Repository", "Infrastructure\MicroService.Repository\MicroService.Repository.csproj", "{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +69,14 @@ Global
 		{B2044BEE-8A74-44BF-940F-98530AF94DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2044BEE-8A74-44BF-940F-98530AF94DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2044BEE-8A74-44BF-940F-98530AF94DB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC8204D5-F7F7-42B5-9224-774C62334D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC8204D5-F7F7-42B5-9224-774C62334D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC8204D5-F7F7-42B5-9224-774C62334D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC8204D5-F7F7-42B5-9224-774C62334D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE62428C-2F49-4B2C-BB52-302D49F6CF40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE62428C-2F49-4B2C-BB52-302D49F6CF40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE62428C-2F49-4B2C-BB52-302D49F6CF40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE62428C-2F49-4B2C-BB52-302D49F6CF40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,7 +92,8 @@ Global
 		{B2044BEE-8A74-44BF-940F-98530AF94DB7} = {4E5ABFDD-5277-4F25-B0D9-F70CBCD2DD6F}
 		{4E5ABFDD-5277-4F25-B0D9-F70CBCD2DD6F} = {8B6D1C98-AD3C-4E95-95A3-686EB8352CCD}
 		{1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9} = {8B6D1C98-AD3C-4E95-95A3-686EB8352CCD}
-		{AC8204D5-F7F7-42B5-9224-774C62334D85} = {1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9}
+		{EE62428C-2F49-4B2C-BB52-302D49F6CF40} = {1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9}
+		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC} = {507DCFD5-20F5-4E4F-A5D6-D91DBCE42F39}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BABAFF40-1A60-4CBB-BBBB-E8829F623F18}
