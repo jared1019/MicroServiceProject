@@ -1,9 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Castle.Core" Version="5.0.0" />
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.12.0" />
+		<PackageReference Include="ServiceStack.Redis" Version="6.1.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+		<PackageReference Include="nacos-sdk-csharp.AspNetCore" Version="1.3.1" />
+		<PackageReference Include="nacos-sdk-csharp.Extensions.Configuration" Version="1.3.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
+	</ItemGroup>
 </Project>

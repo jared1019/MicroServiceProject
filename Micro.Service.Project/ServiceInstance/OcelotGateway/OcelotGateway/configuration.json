@@ -1,0 +1,33 @@
+{
+    "Routes": [
+        {
+            "UpstreamPathTemplate": "/api/user/{url}", 
+            "UpstreamHttpMethod": [ "Get", "Post", "Put", "PATCH", "Delete", "Options" ],
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7259 
+                }
+            ],
+            "DownstreamPathTemplate": "/api/user/{url}",
+            "DownstreamScheme": "https",
+            "DownstreamHeaderTransform": {
+                "Access-Control-Allow-Origin": "http://localhost:8070",
+                "Access-Control-Allow-Methods": "*",
+                "Access-Control-Allow-Headers": "*"
+            }
+        },
+        {
+            "UpstreamPathTemplate": "/user/swagger/v1/swagger.json",
+            "UpstreamHttpMethod": [ "Get" ],
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7259
+                }
+            ],
+            "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+            "DownstreamScheme": "https"
+        }
+    ]
+}

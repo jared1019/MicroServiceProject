@@ -1,0 +1,6 @@
+elasticsearch.yml
+
+新增下面代码，默认不需要修改，记得在插件中输入正确的es的地址
+#action.destructive_requires_name: true
+ http.cors.enabled: true
+ http.cors.allow-origin: "*"
