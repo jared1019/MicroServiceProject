@@ -4,7 +4,7 @@ using UserService.Model.CustomEnums;
 
 namespace UserService.Model.Models
 {
-    [SugarTable("Sys_User")]
+    [SugarTable("Sys_User",TableDescription ="系统用户信息表")]
     public class SysUserModel : BaseModel
     {
         /// <summary>
