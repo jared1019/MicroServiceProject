@@ -1,0 +1,30 @@
+version : '3'
+services:
+  zzx-mysql:
+      # 容器名(以后的控制都通过这个)
+    container_name: mysql
+      # 重启策略
+    restart: always
+    image: mysql:5.8
+    ports:
+      - "3306:3306"
+    volumes:
+       # 挂挂载配置文件
+       #  - ./config/db/:/docker-entrypoint-initdb.d
+      # 挂挂载配置文件
+      - ./config/conf:/etc/mysql/conf.d
+      # 挂载日志
+      - ./config/logs:/logs
+      # 挂载数据
+      - ./config/data:/var/lib/mysql
+    command: [
+          'mysqld',
+          '--innodb-buffer-pool-size=80M',
+          '--character-set-server=utf8mb4',
+          '--collation-server=utf8mb4_unicode_ci',
+          '--default-time-zone=+8:00',
+          '--lower-case-table-names=1'
+        ]
+    environment:
+      # root 密码
+      MYSQL_ROOT_PASSWORD: 123456

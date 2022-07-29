@@ -1,0 +1,118 @@
+version: '3'
+services:
+  mysql_master:
+    environment:
+      MYSQL_ROOT_PASSWORD: qwer1234
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
+
+      MASTER_SYNC_USER: sync_admin
+      MASTER_SYNC_PASSWORD: sync_admin
+
+      ADMIN_USER: root
+      ADMIN_PASSWORD: qwer1234
+      TZ: Asia/Shanghai
+    build:
+      context: ./mysql_master/
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql_master
+    ports:
+      - "4306:3306"
+    networks:
+      - shardingSphere
+    volumes:
+      - "./mysql_master/data:/var/lib/mysql"
+    restart: always
+
+  mysql_slave1:
+    environment:
+      MYSQL_ROOT_PASSWORD: qwer1234
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
+
+      MASTER_SYNC_USER: sync_admin
+      MASTER_SYNC_PASSWORD: sync_admin
+
+      ADMIN_USER: root
+      ADMIN_PASSWORD: qwer1234
+
+      MASTER_HOST: 192.168.3.245
+      MASTER_PORT: 4306
+      TZ: "Asia/Shanghai"
+    depends_on:
+      - mysql_master
+    build:
+      context: ./mysql_slave/slave1
+    image: gerry/mysql8
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql_slave1
+    ports:
+      - "5306:3306"
+    networks:
+      - shardingSphere
+    volumes:
+      - "./mysql_slave/slave1/data:/var/lib/mysql"
+    restart: always
+    
+  mysql_slave2:
+    environment:
+      MYSQL_ROOT_PASSWORD: qwer1234
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
+
+      MASTER_SYNC_USER: sync_admin
+      MASTER_SYNC_PASSWORD: sync_admin
+
+      ADMIN_USER: root
+      ADMIN_PASSWORD: qwer1234
+
+      MASTER_HOST: 192.168.3.245
+      MASTER_PORT: 4306
+      TZ: "Asia/Shanghai"
+    depends_on:
+      - mysql_master
+    image: gerry/mysql8
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql_slave2
+    ports:
+      - "5307:3306"
+    networks:
+      - shardingSphere
+    volumes:
+      - "./mysql_slave/slave2/data:/var/lib/mysql"
+    restart: always
+    
+  mysql_slave3:
+    environment:
+      MYSQL_ROOT_PASSWORD: qwer1234
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 123456
+
+      MASTER_SYNC_USER: sync_admin
+      MASTER_SYNC_PASSWORD: sync_admin
+
+      ADMIN_USER: root
+      ADMIN_PASSWORD: qwer1234
+
+      MASTER_HOST: 192.168.3.245
+      MASTER_PORT: 4306
+      TZ: "Asia/Shanghai"
+    depends_on:
+      - mysql_master
+    image: gerry/mysql8
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql_slave3
+    ports:
+      - "5308:3306"
+    networks:
+      - shardingSphere
+    volumes:
+      - "./mysql_slave/slave3/data:/var/lib/mysql"
+    restart: always
+networks:
+  shardingSphere:
+    driver: bridge
