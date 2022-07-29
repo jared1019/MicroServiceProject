@@ -72,8 +72,9 @@ namespace MicroService.Common
 
                 modelTypes.ForEach(t =>
                 {
+                    string tableName = (t?.CustomAttributes?.Last()?.ConstructorArguments.FirstOrDefault())?.Value.ToString() ?? t.Name;
                     // 这里只支持添加表，不支持删除
-                    if (!myContext.Db.DbMaintenance.IsAnyTable(t.Name))
+                    if (!myContext.Db.DbMaintenance.IsAnyTable(tableName))
                     {
                         Console.WriteLine(t.Name);
                         myContext.Db.CodeFirst.InitTables(t);
