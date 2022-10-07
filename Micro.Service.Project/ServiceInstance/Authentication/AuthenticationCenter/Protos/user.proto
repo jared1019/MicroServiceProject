@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+//命名空间
+option csharp_namespace = "User.GrpcService";
+//包名
+package user;
+
+service Users {
+  rpc QueryUser (AuthData) returns (UsersResponse);
+}
+
+message AuthData {
+	string Username=1; 
+	string Password=2;
+}
+
+message UsersItemResponse{
+	int32 Id = 1;
+	string Username = 2;
+	string Password = 3;
+	string Phone = 4;
+	string Salt = 5;
+}
+
+message UsersResponse{
+	bool Success = 1;
+	string ErrorMsg = 2;
+	UsersItemResponse Data = 3;
+}

@@ -15,4 +15,6 @@
     <ProjectReference Include="..\UserService.Service\UserService.Service.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

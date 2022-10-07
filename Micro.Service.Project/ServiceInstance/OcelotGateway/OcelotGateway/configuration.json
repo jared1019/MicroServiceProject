@@ -1,33 +1,91 @@
 {
-    "Routes": [
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/Auth/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "PATCH", "Delete", "Options" ],
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "AuthenticationCenter",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DownstreamHostAndPorts": [
         {
-            "UpstreamPathTemplate": "/api/user/{url}", 
-            "UpstreamHttpMethod": [ "Get", "Post", "Put", "PATCH", "Delete", "Options" ],
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 7259 
-                }
-            ],
-            "DownstreamPathTemplate": "/api/user/{url}",
-            "DownstreamScheme": "https",
-            "DownstreamHeaderTransform": {
-                "Access-Control-Allow-Origin": "http://localhost:8070",
-                "Access-Control-Allow-Methods": "*",
-                "Access-Control-Allow-Headers": "*"
-            }
-        },
-        {
-            "UpstreamPathTemplate": "/user/swagger/v1/swagger.json",
-            "UpstreamHttpMethod": [ "Get" ],
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "localhost",
-                    "Port": 7259
-                }
-            ],
-            "DownstreamPathTemplate": "/swagger/v1/swagger.json",
-            "DownstreamScheme": "https"
+          "Host": "127.0.0.1",
+          "Port": 7200
         }
-    ]
+      ],
+      "DownstreamPathTemplate": "/api/Auth/{url}",
+      "DownstreamScheme": "http"
+      //"DownstreamHeaderTransform": {
+      //  "Access-Control-Allow-Origin": "http://localhost:8070",
+      //  "Access-Control-Allow-Methods": "*",
+      //  "Access-Control-Allow-Headers": "*"
+      //}
+    },
+    {
+      "UpstreamPathTemplate": "/auth/swagger/v1/swagger.json",
+      "UpstreamHttpMethod": [ "Get" ],
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "AuthenticationCenter",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //LeastConnection-  NoLoadBalance
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 7200
+        }
+      ],
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http"
+      //"RateLimitOptions": {
+      //  "ClientWhitelist": [ "eleven", "seven" ],
+      //  "EnableRateLimiting": true,
+      //  "Period": "5m", //1s, 5m, 1h, 1d
+      //  "PeriodTimespan": 30,
+      //  "Limit": 5
+      //}
+    },
+
+
+    {
+      "UpstreamPathTemplate": "/api/user/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "PATCH", "Delete", "Options" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "UserMicroservice",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 5726
+        }
+      ],
+      "DownstreamPathTemplate": "/api/user/{url}",
+      "DownstreamScheme": "http"
+      //"DownstreamHeaderTransform": {
+      //  "Access-Control-Allow-Origin": "http://localhost:8070",
+      //  "Access-Control-Allow-Methods": "*",
+      //  "Access-Control-Allow-Headers": "*"
+      //}
+    },
+    {
+      "UpstreamPathTemplate": "/user/swagger/v1/swagger.json",
+      "UpstreamHttpMethod": [ "Get" ],
+      //"UseServiceDiscovery": true,
+      //"ServiceName": "UserMicroservice",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 5726
+        }
+      ],
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http"
+    }
+  ]
 }
