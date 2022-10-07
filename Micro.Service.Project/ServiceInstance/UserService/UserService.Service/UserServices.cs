@@ -5,7 +5,7 @@ using UserService.Service.BASE;
 
 namespace UserService.Service
 {
-    public class UserServices : BaseServices<SysUserModel>, IUserServices
+    public class UserServices : BaseServices<Users>, IUserServices
     {
         public async Task<LoginUserDto> GetUser(string loginName, string loginPwd)
         {
@@ -16,7 +16,8 @@ namespace UserService.Service
                 RealName = "admin",
                 RoleName = "超级系统管理员",
             };
-            var user = (await Query(a => a.LoginName == loginName && a.Pwd == loginPwd)).FirstOrDefault();
+            var user = (await Query(a => a.Username == loginName && a.Password == loginPwd)).FirstOrDefault();
+            Task.WaitAll();
             //if (user != null)
             //{
             //    loginUserDto=new LoginUserDto() { 

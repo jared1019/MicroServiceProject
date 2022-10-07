@@ -61,6 +61,7 @@ namespace MicroService.Common
             byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
             return Convert.ToBase64String(s);
         }
+
         /// <summary>
         /// Sha1加密
         /// </summary>
@@ -77,6 +78,7 @@ namespace MicroService.Common
             }
             return sb.ToString();
         }
+
         /// <summary>
         /// Sha256加密
         /// </summary>
@@ -92,6 +94,18 @@ namespace MicroService.Common
                 sb.Append(t.ToString(format));
             }
             return sb.ToString();
+        }
+
+        /// <summary>
+		/// MD5盐值加密
+		/// </summary>
+		/// <param name="content">源字符串</param>
+		/// <param name="salt">盐值</param>
+		/// <returns>加密后字符串</returns>
+		public static string MD5EncodingWithSalt(string content, string salt)
+        {
+            if (salt == null) return content;
+            return Sha1(content + "{" + salt.ToString() + "}");
         }
     }
 }

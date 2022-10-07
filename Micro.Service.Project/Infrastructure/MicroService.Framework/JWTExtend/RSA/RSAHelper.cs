@@ -1,7 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 
-namespace MicroService.Common
+namespace MicroService.Framework.JWTExtend.RSA
 {
     public class RSAHelper
     {
@@ -16,7 +21,7 @@ namespace MicroService.Common
         {
             string filename = withPrivate ? "key.json" : "key.public.json";
             string fileTotalPath = Path.Combine(filePath, filename);
-            keyParameters = default(RSAParameters);
+            keyParameters = default;
             if (!File.Exists(fileTotalPath))
             {
                 return false;

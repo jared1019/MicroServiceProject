@@ -4,7 +4,7 @@ using UserService.Model.Models;
 
 namespace UserService.Interface
 {
-    public interface IUserServices : IBaseServices<SysUserModel>
+    public interface IUserServices : IBaseServices<Users>
     {
         Task<LoginUserDto> GetUser(string loginName, string loginPwd);
     }

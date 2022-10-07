@@ -29,7 +29,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GatewayService", "GatewaySe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateway", "ServiceInstance\OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{EE62428C-2F49-4B2C-BB52-302D49F6CF40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Repository", "Infrastructure\MicroService.Repository\MicroService.Repository.csproj", "{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.Repository", "Infrastructure\MicroService.Repository\MicroService.Repository.csproj", "{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{83DE2C94-E77F-45C4-AEE6-14F3D0721C65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationCenter", "ServiceInstance\Authentication\AuthenticationCenter\AuthenticationCenter.csproj", "{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.GrpcService", "ServiceInstance\UserService\User.GrpcService\User.GrpcService.csproj", "{9B1F9EFB-2740-480E-B27C-881C1721A94A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,14 @@ Global
 		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1F9EFB-2740-480E-B27C-881C1721A94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1F9EFB-2740-480E-B27C-881C1721A94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1F9EFB-2740-480E-B27C-881C1721A94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1F9EFB-2740-480E-B27C-881C1721A94A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +108,9 @@ Global
 		{1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9} = {8B6D1C98-AD3C-4E95-95A3-686EB8352CCD}
 		{EE62428C-2F49-4B2C-BB52-302D49F6CF40} = {1A78B4D5-7490-4AD9-B24D-1A1C88C5CCE9}
 		{8D91C9FF-4D1F-43FB-BB59-997CF4F8C2CC} = {507DCFD5-20F5-4E4F-A5D6-D91DBCE42F39}
+		{83DE2C94-E77F-45C4-AEE6-14F3D0721C65} = {8B6D1C98-AD3C-4E95-95A3-686EB8352CCD}
+		{C3899829-C9AB-45F0-8DA2-6A6C7A2611F9} = {83DE2C94-E77F-45C4-AEE6-14F3D0721C65}
+		{9B1F9EFB-2740-480E-B27C-881C1721A94A} = {4E5ABFDD-5277-4F25-B0D9-F70CBCD2DD6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BABAFF40-1A60-4CBB-BBBB-E8829F623F18}
